@@ -243,14 +243,8 @@ namespace PreciosOK.Views
 
         private static void ShowReviewTask()
         {
-            //Show an application, using the default ContentType.
-            var marketplaceDetailTask = new MarketplaceDetailTask
-            {
-                ContentIdentifier = "7d26e39e-4744-43e9-89f4-15e2e2b3a9ea",
-                ContentType = MarketplaceContentType.Applications
-            };
-
-            marketplaceDetailTask.Show();
+            var marketplaceReviewTask = new MarketplaceReviewTask();
+            marketplaceReviewTask.Show();
         }
     }
 
