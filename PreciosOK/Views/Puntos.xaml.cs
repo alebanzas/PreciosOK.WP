@@ -46,8 +46,10 @@ namespace PreciosOK.Views
             MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
 
 
-            RegionList.ItemsSource = App.Configuration.GetRegions();
-            MarketList.ItemsSource = App.Configuration.GetMarkets();
+            RegionList.ItemsSource = App.Configuration.GetRegions().Select(x => x.Value);
+            RegionList.SelectedIndex = App.Configuration.SelectedRegion.HasValue ? App.Configuration.SelectedRegion.Value : 0;
+            MarketList.ItemsSource = App.Configuration.GetMarketsByRegions(RegionList.SelectedIndex).Select(x => x.Value);
+            MarketList.SelectedIndex = App.Configuration.SelectedMarket.HasValue ? App.Configuration.SelectedMarket.Value : 0;
 
             if (!App.Configuration.SelectedMarket.HasValue ||
                 !App.Configuration.SelectedRegion.HasValue)
@@ -199,8 +201,15 @@ namespace PreciosOK.Views
             App.Configuration.SelectedRegion = RegionList.SelectedIndex;
             App.Configuration.SelectedMarket = MarketList.SelectedIndex;
 
+            MostrarLugares(); 
+
             SetApplicationBarEnabled(true);
             OptionSelectionPanel.Visibility = Visibility.Collapsed;
+        }
+
+        private void RegionList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MarketList.ItemsSource = App.Configuration.GetMarketsByRegions(RegionList.SelectedIndex).Select(x => x.Value);
         }
     }
 
