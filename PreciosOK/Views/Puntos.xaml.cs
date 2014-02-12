@@ -42,6 +42,9 @@ namespace PreciosOK.Views
 
             TxtVersion.Text = App.Configuration.Version;
 
+            MobFoxAdControl.PublisherID = App.Configuration.MobFoxID;
+            MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
+
             //TODO: cambio de region y tipo
             App.Configuration.SelectedRegion = 0;
             App.Configuration.SelectedMarket = 0;

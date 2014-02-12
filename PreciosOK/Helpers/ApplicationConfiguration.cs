@@ -145,5 +145,18 @@ namespace PreciosOK.Helpers
         public string Name { get; private set; }
 
         public int OpenCount { get; set; }
+
+        public string MobFoxID = "6e5750e15a3e149e36437939d5aac5f8";
+
+        public bool MobFoxInTestMode
+        {
+            get
+            {
+#if DEBUG
+                return true;
+#endif
+                return false;
+            }
+        }
     }
 }
