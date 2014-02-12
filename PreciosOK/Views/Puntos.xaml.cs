@@ -27,6 +27,7 @@ namespace PreciosOK.Views
         Pushpin _posicionActual;
         private string _categoria;
         private bool _isSearching;
+        private bool _isChanging;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -149,6 +150,11 @@ namespace PreciosOK.Views
 
         protected override void OnBackKeyPress(CancelEventArgs e)
         {
+            if (_isChanging)
+            {
+                OptionSelectionPanel.Visibility = Visibility.Collapsed;
+            }
+
             if (_isSearching)
             {
                 _isSearching = false;
@@ -193,6 +199,7 @@ namespace PreciosOK.Views
 
         private void CambiarZona_Click(object sender, EventArgs e)
         {
+            _isChanging = true;
             OptionSelectionPanel.Visibility = Visibility.Visible;
         }
         
@@ -201,8 +208,9 @@ namespace PreciosOK.Views
             App.Configuration.SelectedRegion = RegionList.SelectedIndex;
             App.Configuration.SelectedMarket = MarketList.SelectedIndex;
 
-            MostrarLugares(); 
+            MostrarLugares();
 
+            _isChanging = false;
             SetApplicationBarEnabled(true);
             OptionSelectionPanel.Visibility = Visibility.Collapsed;
         }
