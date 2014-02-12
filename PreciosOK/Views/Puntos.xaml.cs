@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
+using Microsoft.Phone.Tasks;
 using PreciosOK.Helpers;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Controls.Maps;
@@ -57,6 +58,19 @@ namespace PreciosOK.Views
             {
                 SetApplicationBarEnabled(false);
                 OptionSelectionPanel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                if (!App.Configuration.IsRated && App.Configuration.OpenCount > 2)
+                {
+                    if (MessageBox.Show("Queres calificar la aplicación?", "Ayudanos a mejorar", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                    {
+                        App.Configuration.IsRated = true;
+                        Config.Set(App.Configuration);
+
+                        ShowReviewTask();
+                    }
+                }
             }
             
             StatusChecker.Check("Home");
@@ -220,6 +234,23 @@ namespace PreciosOK.Views
         private void RegionList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MarketList.ItemsSource = App.Configuration.GetMarketsByRegions(RegionList.SelectedIndex).Select(x => x.Value);
+        }
+
+        private void RateReview_Click(object sender, EventArgs e)
+        {
+            ShowReviewTask();
+        }
+
+        private static void ShowReviewTask()
+        {
+            //Show an application, using the default ContentType.
+            var marketplaceDetailTask = new MarketplaceDetailTask
+            {
+                ContentIdentifier = "7d26e39e-4744-43e9-89f4-15e2e2b3a9ea",
+                ContentType = MarketplaceContentType.Applications
+            };
+
+            marketplaceDetailTask.Show();
         }
     }
 
