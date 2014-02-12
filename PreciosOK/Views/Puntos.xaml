@@ -126,6 +126,8 @@
                             <LineBreak /><LineBreak /><LineBreak />
                             Notas de versión
                             <LineBreak /><LineBreak />
+                            1.0.0.1: Cambios menores.
+                            <LineBreak /><LineBreak />
                             1.0: Versión inicial. Lista de productos, filtro por categoria, escaneo de codigo de barras.
 						    <LineBreak /><LineBreak />
                         </TextBlock>
