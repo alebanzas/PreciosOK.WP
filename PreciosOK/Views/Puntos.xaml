@@ -38,12 +38,12 @@
         </DataTemplate>
 
     </phone:PhoneApplicationPage.Resources>
-    
+
     <!--LayoutRoot contains the root grid where all other page content is placed-->
     <Grid x:Name="LayoutRoot">
 
         <StackPanel Background="#0071B7" VerticalAlignment="Top" Height="170"></StackPanel>
-        
+
         <StackPanel x:Name="SearchPanel" Background="#0071B7" Canvas.ZIndex="10" Margin="0,-850,0,0" Height="80">
             <StackPanel Orientation="Horizontal" Margin="14,0">
                 <toolkit:ListPicker SelectionChanged="CategoryList_OnSelectionChanged" x:Name="CategoryList" Width="430" FullModeHeader="Categorias" FullModeItemTemplate="{StaticResource PickerFullModeItemTemplate}"></toolkit:ListPicker>
@@ -54,7 +54,7 @@
 
             <controls:PanoramaItem Header="lista" HeaderTemplate="{StaticResource SmallPanoramaTitle}">
                 <Grid Margin="10,10,0,0" HorizontalAlignment="Left" Grid.Row="1">
-                    <ListBox Canvas.ZIndex="1" x:Name="List" Height="510" Margin="0,0,0,10" ItemsSource="{Binding Estaciones}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="LstLugares_SelectionChanged">
+                    <ListBox Canvas.ZIndex="1" x:Name="List" Margin="0,0,0,54" ItemsSource="{Binding Estaciones}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="LstLugares_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -93,7 +93,7 @@
                                                 Style="{StaticResource PhoneTextLargeStyle}"/>
                                         </StackPanel>
                                     </StackPanel>
-                                    
+
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
