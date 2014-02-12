@@ -39,12 +39,14 @@ namespace PreciosOK.Helpers
             InstallationId = Guid.NewGuid();
             IsLocationEnabledByPhone = true;
             IsLocationEnabledByAppConfig = true;
+            IsRated = false;
             IsInitialized = true;
             
             Config.Set(this);
         }
 
-        
+        public bool IsRated { get; set; }
+
         public bool IsInitialized { get; set; }
 
         public bool IsLocationEnabled { get { return IsLocationEnabledByPhone && IsLocationEnabledByAppConfig; } }

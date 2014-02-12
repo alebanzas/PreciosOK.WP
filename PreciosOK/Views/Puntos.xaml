@@ -142,9 +142,10 @@
             <shell:ApplicationBarIconButton Text="filtrar" IconUri="/Images/Icons/search.refine.png"  Click="ButtonSearch_Click" />
             <shell:ApplicationBarIconButton Text="escanear" IconUri="/Images/Icons/appbar.feature.code.png"  Click="CodeSearch_Click" />
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="Acerca de" Click="Acerca_Click"/>
                 <shell:ApplicationBarMenuItem Text="Cambiar zona" Click="CambiarZona_Click"/>
+                <shell:ApplicationBarMenuItem Text="danos tus comentarios" Click="RateReview_Click"/>
                 <shell:ApplicationBarMenuItem Text="Opciones" Click="Opciones_Click"/>
+                <shell:ApplicationBarMenuItem Text="Acerca de" Click="Acerca_Click"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
