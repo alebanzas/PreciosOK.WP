@@ -78,7 +78,7 @@
                                                 HorizontalAlignment="Left"
                                                 Text="{Binding Path=Brand}" />
                                         </StackPanel>
-                                        <StackPanel Width="80" Orientation="Horizontal">
+                                        <StackPanel Width="80" HorizontalAlignment="Right" Orientation="Horizontal">
                                             <TextBlock Margin="0,8,0,8"
                                                 TextWrapping="Wrap"
                                                 VerticalAlignment="Top"

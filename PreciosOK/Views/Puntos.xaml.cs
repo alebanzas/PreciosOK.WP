@@ -103,6 +103,7 @@ namespace PreciosOK.Views
 
             //Vuelvo el indice del item seleccionado a -1 para que pueda hacer tap en el mismo item y navegarlo
             listBox.SelectedIndex = -1;
+            listBox.ScrollIntoView(listBox.Items.First());
         }
 
         private void Opciones_Click(object sender, EventArgs e)
