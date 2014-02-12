@@ -26,13 +26,13 @@
 
         <DataTemplate x:Name="SmallPanoramaTitle">
             <ContentPresenter>
-                <TextBlock Text="{Binding}" FontSize="50" Margin="0,0,0,0" />
+                <TextBlock Text="{Binding}" Foreground="White" FontSize="50" Margin="0,0,0,0" />
             </ContentPresenter>
         </DataTemplate>
 
         <DataTemplate x:Name="MediumPanoramaTitle">
             <ContentPresenter>
-                <TextBlock Text="{Binding}" FontSize="70" Margin="12,70,0,0" />
+                <TextBlock Text="{Binding}" Foreground="White" FontSize="70" Margin="12,70,0,0" />
             </ContentPresenter>
         </DataTemplate>
 
