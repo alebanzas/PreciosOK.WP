@@ -55,6 +55,7 @@ namespace PreciosOK.Views
         void Page_Loaded(object sender, RoutedEventArgs e)
         {
             SystemTray.BackgroundColor = new HexColor("#0071B7").GetColor();
+            SystemTray.ForegroundColor = new HexColor("#FFFFFF").GetColor();
 
             if (!CategoryList.Items.Any())
             {
