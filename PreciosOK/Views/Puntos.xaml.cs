@@ -152,7 +152,9 @@ namespace PreciosOK.Views
         {
             if (_isChanging)
             {
+                _isChanging = false;
                 OptionSelectionPanel.Visibility = Visibility.Collapsed;
+                e.Cancel = true;
             }
 
             if (_isSearching)
