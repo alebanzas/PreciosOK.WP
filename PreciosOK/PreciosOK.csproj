@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67B2F74A-C014-4DA3-A4F5-C57A7C25C1E0}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PreciosOK</RootNamespace>
+    <AssemblyName>PreciosOK</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>PreciosOK.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>PreciosOK.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JeffWilcox.PhoneThemeManager">
+      <HintPath>..\..\lib\JeffWilcox.PhoneThemeManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Maps, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\..\lib\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="system.data.linq" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib.extensions" />
+    <Reference Include="zxing.wp7.1">
+      <HintPath>..\packages\ZXing.Net.0.12.0.0\lib\sl4-wp71\zxing.wp7.1.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ApplicationConfiguration.cs" />
+    <Compile Include="Helpers\Config.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Helpers\LoadingBar.cs" />
+    <Compile Include="Helpers\PositionService.cs" />
+    <Compile Include="Helpers\ProductsData.cs" />
+    <Compile Include="Helpers\ProgressBar.cs" />
+    <Compile Include="Helpers\StatusChecker.cs" />
+    <Compile Include="Helpers\TileManager.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductIdImagenConverter.cs" />
+    <Compile Include="Views\Acerca.xaml.cs">
+      <DependentUpon>Acerca.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Opciones.xaml.cs">
+      <DependentUpon>Opciones.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Puntos.xaml.cs">
+      <DependentUpon>Puntos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LugarDetalles.xaml.cs">
+      <DependentUpon>LugarDetalles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Scan.xaml.cs">
+      <DependentUpon>Scan.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\appbar.feature.code.png" />
+    <Content Include="Images\Icons\appbar.feature.eye.rest.png" />
+    <Content Include="Images\Icons\appbar.feature.pin.rest.png" />
+    <Content Include="Images\Icons\appbar.minus.rest.png" />
+    <Content Include="Images\Icons\appbar.new.rest.png" />
+    <Content Include="Images\Icons\feature.share.png" />
+    <Content Include="Images\Icons\feature.search.png" />
+    <Content Include="Images\Icons\search.refine.png" />
+    <Content Include="Images\Products\product_1.jpg" />
+    <Content Include="Images\Products\product_10.jpg" />
+    <Content Include="Images\Products\product_100.jpg" />
+    <Content Include="Images\Products\product_101.jpg" />
+    <Content Include="Images\Products\product_102.jpg" />
+    <Content Include="Images\Products\product_103.jpg" />
+    <Content Include="Images\Products\product_104.jpg" />
+    <Content Include="Images\Products\product_105.jpg" />
+    <Content Include="Images\Products\product_106.jpg" />
+    <Content Include="Images\Products\product_107.jpg" />
+    <Content Include="Images\Products\product_108.jpg" />
+    <Content Include="Images\Products\product_109.jpg" />
+    <Content Include="Images\Products\product_11.jpg" />
+    <Content Include="Images\Products\product_110.jpg" />
+    <Content Include="Images\Products\product_111.jpg" />
+    <Content Include="Images\Products\product_112.jpg" />
+    <Content Include="Images\Products\product_113.jpg" />
+    <Content Include="Images\Products\product_114.jpg" />
+    <Content Include="Images\Products\product_115.jpg" />
+    <Content Include="Images\Products\product_116.jpg" />
+    <Content Include="Images\Products\product_117.jpg" />
+    <Content Include="Images\Products\product_118.jpg" />
+    <Content Include="Images\Products\product_119.jpg" />
+    <Content Include="Images\Products\product_12.jpg" />
+    <Content Include="Images\Products\product_120.jpg" />
+    <Content Include="Images\Products\product_121.jpg" />
+    <Content Include="Images\Products\product_122.jpg" />
+    <Content Include="Images\Products\product_123.jpg" />
+    <Content Include="Images\Products\product_124.jpg" />
+    <Content Include="Images\Products\product_125.jpg" />
+    <Content Include="Images\Products\product_126.jpg" />
+    <Content Include="Images\Products\product_127.jpg" />
+    <Content Include="Images\Products\product_128.jpg" />
+    <Content Include="Images\Products\product_129.jpg" />
+    <Content Include="Images\Products\product_13.jpg" />
+    <Content Include="Images\Products\product_133.jpg" />
+    <Content Include="Images\Products\product_134.jpg" />
+    <Content Include="Images\Products\product_135.jpg" />
+    <Content Include="Images\Products\product_136.jpg" />
+    <Content Include="Images\Products\product_137.jpg" />
+    <Content Include="Images\Products\product_138.jpg" />
+    <Content Include="Images\Products\product_139.jpg" />
+    <Content Include="Images\Products\product_14.jpg" />
+    <Content Include="Images\Products\product_140.jpg" />
+    <Content Include="Images\Products\product_141.jpg" />
+    <Content Include="Images\Products\product_144.jpg" />
+    <Content Include="Images\Products\product_146.jpg" />
+    <Content Include="Images\Products\product_147.jpg" />
+    <Content Include="Images\Products\product_148.jpg" />
+    <Content Include="Images\Products\product_149.jpg" />
+    <Content Include="Images\Products\product_15.jpg" />
+    <Content Include="Images\Products\product_151.jpg" />
+    <Content Include="Images\Products\product_152.jpg" />
+    <Content Include="Images\Products\product_153.jpg" />
+    <Content Include="Images\Products\product_154.jpg" />
+    <Content Include="Images\Products\product_155.jpg" />
+    <Content Include="Images\Products\product_156.jpg" />
+    <Content Include="Images\Products\product_157.jpg" />
+    <Content Include="Images\Products\product_158.jpg" />
+    <Content Include="Images\Products\product_159.jpg" />
+    <Content Include="Images\Products\product_16.jpg" />
+    <Content Include="Images\Products\product_160.jpg" />
+    <Content Include="Images\Products\product_161.jpg" />
+    <Content Include="Images\Products\product_162.jpg" />
+    <Content Include="Images\Products\product_163.jpg" />
+    <Content Include="Images\Products\product_164.jpg" />
+    <Content Include="Images\Products\product_165.jpg" />
+    <Content Include="Images\Products\product_168.jpg" />
+    <Content Include="Images\Products\product_169.jpg" />
+    <Content Include="Images\Products\product_17.jpg" />
+    <Content Include="Images\Products\product_170.jpg" />
+    <Content Include="Images\Products\product_171.jpg" />
+    <Content Include="Images\Products\product_172.jpg" />
+    <Content Include="Images\Products\product_173.jpg" />
+    <Content Include="Images\Products\product_176.jpg" />
+    <Content Include="Images\Products\product_177.jpg" />
+    <Content Include="Images\Products\product_178.jpg" />
+    <Content Include="Images\Products\product_179.jpg" />
+    <Content Include="Images\Products\product_18.jpg" />
+    <Content Include="Images\Products\product_180.jpg" />
+    <Content Include="Images\Products\product_181.jpg" />
+    <Content Include="Images\Products\product_182.jpg" />
+    <Content Include="Images\Products\product_183.jpg" />
+    <Content Include="Images\Products\product_184.jpg" />
+    <Content Include="Images\Products\product_185.jpg" />
+    <Content Include="Images\Products\product_186.jpg" />
+    <Content Include="Images\Products\product_187.jpg" />
+    <Content Include="Images\Products\product_188.jpg" />
+    <Content Include="Images\Products\product_189.jpg" />
+    <Content Include="Images\Products\product_19.jpg" />
+    <Content Include="Images\Products\product_190.jpg" />
+    <Content Include="Images\Products\product_191.jpg" />
+    <Content Include="Images\Products\product_192.jpg" />
+    <Content Include="Images\Products\product_193.jpg" />
+    <Content Include="Images\Products\product_194.jpg" />
+    <Content Include="Images\Products\product_195.jpg" />
+    <Content Include="Images\Products\product_196.jpg" />
+    <Content Include="Images\Products\product_197.jpg" />
+    <Content Include="Images\Products\product_198.jpg" />
+    <Content Include="Images\Products\product_199.jpg" />
+    <Content Include="Images\Products\product_2.jpg" />
+    <Content Include="Images\Products\product_20.jpg" />
+    <Content Include="Images\Products\product_200.jpg" />
+    <Content Include="Images\Products\product_201.jpg" />
+    <Content Include="Images\Products\product_203.jpg" />
+    <Content Include="Images\Products\product_204.jpg" />
+    <Content Include="Images\Products\product_205.jpg" />
+    <Content Include="Images\Products\product_206.jpg" />
+    <Content Include="Images\Products\product_207.jpg" />
+    <Content Include="Images\Products\product_208.jpg" />
+    <Content Include="Images\Products\product_209.jpg" />
+    <Content Include="Images\Products\product_21.jpg" />
+    <Content Include="Images\Products\product_210.jpg" />
+    <Content Include="Images\Products\product_211.jpg" />
+    <Content Include="Images\Products\product_212.jpg" />
+    <Content Include="Images\Products\product_213.jpg" />
+    <Content Include="Images\Products\product_214.jpg" />
+    <Content Include="Images\Products\product_215.jpg" />
+    <Content Include="Images\Products\product_216.jpg" />
+    <Content Include="Images\Products\product_217.jpg" />
+    <Content Include="Images\Products\product_218.jpg" />
+    <Content Include="Images\Products\product_219.jpg" />
+    <Content Include="Images\Products\product_22.jpg" />
+    <Content Include="Images\Products\product_220.jpg" />
+    <Content Include="Images\Products\product_221.jpg" />
+    <Content Include="Images\Products\product_222.jpg" />
+    <Content Include="Images\Products\product_223.jpg" />
+    <Content Include="Images\Products\product_224.jpg" />
+    <Content Include="Images\Products\product_225.jpg" />
+    <Content Include="Images\Products\product_226.jpg" />
+    <Content Include="Images\Products\product_227.jpg" />
+    <Content Include="Images\Products\product_228.jpg" />
+    <Content Include="Images\Products\product_229.jpg" />
+    <Content Include="Images\Products\product_23.jpg" />
+    <Content Include="Images\Products\product_230.jpg" />
+    <Content Include="Images\Products\product_231.jpg" />
+    <Content Include="Images\Products\product_232.jpg" />
+    <Content Include="Images\Products\product_233.jpg" />
+    <Content Include="Images\Products\product_234.jpg" />
+    <Content Include="Images\Products\product_235.jpg" />
+    <Content Include="Images\Products\product_236.jpg" />
+    <Content Include="Images\Products\product_237.jpg" />
+    <Content Include="Images\Products\product_24.jpg" />
+    <Content Include="Images\Products\product_25.jpg" />
+    <Content Include="Images\Products\product_26.jpg" />
+    <Content Include="Images\Products\product_27.jpg" />
+    <Content Include="Images\Products\product_28.jpg" />
+    <Content Include="Images\Products\product_29.jpg" />
+    <Content Include="Images\Products\product_3.jpg" />
+    <Content Include="Images\Products\product_30.jpg" />
+    <Content Include="Images\Products\product_31.jpg" />
+    <Content Include="Images\Products\product_32.jpg" />
+    <Content Include="Images\Products\product_33.jpg" />
+    <Content Include="Images\Products\product_34.jpg" />
+    <Content Include="Images\Products\product_35.jpg" />
+    <Content Include="Images\Products\product_36.jpg" />
+    <Content Include="Images\Products\product_37.jpg" />
+    <Content Include="Images\Products\product_38.jpg" />
+    <Content Include="Images\Products\product_39.jpg" />
+    <Content Include="Images\Products\product_4.jpg" />
+    <Content Include="Images\Products\product_40.jpg" />
+    <Content Include="Images\Products\product_41.jpg" />
+    <Content Include="Images\Products\product_42.jpg" />
+    <Content Include="Images\Products\product_43.jpg" />
+    <Content Include="Images\Products\product_44.jpg" />
+    <Content Include="Images\Products\product_45.jpg" />
+    <Content Include="Images\Products\product_46.jpg" />
+    <Content Include="Images\Products\product_47.jpg" />
+    <Content Include="Images\Products\product_48.jpg" />
+    <Content Include="Images\Products\product_49.jpg" />
+    <Content Include="Images\Products\product_5.jpg" />
+    <Content Include="Images\Products\product_50.jpg" />
+    <Content Include="Images\Products\product_51.jpg" />
+    <Content Include="Images\Products\product_52.jpg" />
+    <Content Include="Images\Products\product_53.jpg" />
+    <Content Include="Images\Products\product_54.jpg" />
+    <Content Include="Images\Products\product_55.jpg" />
+    <Content Include="Images\Products\product_56.jpg" />
+    <Content Include="Images\Products\product_57.jpg" />
+    <Content Include="Images\Products\product_58.jpg" />
+    <Content Include="Images\Products\product_59.jpg" />
+    <Content Include="Images\Products\product_6.jpg" />
+    <Content Include="Images\Products\product_60.jpg" />
+    <Content Include="Images\Products\product_61.jpg" />
+    <Content Include="Images\Products\product_62.jpg" />
+    <Content Include="Images\Products\product_63.jpg" />
+    <Content Include="Images\Products\product_64.jpg" />
+    <Content Include="Images\Products\product_65.jpg" />
+    <Content Include="Images\Products\product_66.jpg" />
+    <Content Include="Images\Products\product_67.jpg" />
+    <Content Include="Images\Products\product_68.jpg" />
+    <Content Include="Images\Products\product_69.jpg" />
+    <Content Include="Images\Products\product_7.jpg" />
+    <Content Include="Images\Products\product_70.jpg" />
+    <Content Include="Images\Products\product_71.jpg" />
+    <Content Include="Images\Products\product_72.jpg" />
+    <Content Include="Images\Products\product_73.jpg" />
+    <Content Include="Images\Products\product_74.jpg" />
+    <Content Include="Images\Products\product_75.jpg" />
+    <Content Include="Images\Products\product_76.jpg" />
+    <Content Include="Images\Products\product_77.jpg" />
+    <Content Include="Images\Products\product_78.jpg" />
+    <Content Include="Images\Products\product_79.jpg" />
+    <Content Include="Images\Products\product_8.jpg" />
+    <Content Include="Images\Products\product_80.jpg" />
+    <Content Include="Images\Products\product_81.jpg" />
+    <Content Include="Images\Products\product_82.jpg" />
+    <Content Include="Images\Products\product_83.jpg" />
+    <Content Include="Images\Products\product_84.jpg" />
+    <Content Include="Images\Products\product_85.jpg" />
+    <Content Include="Images\Products\product_86.jpg" />
+    <Content Include="Images\Products\product_87.jpg" />
+    <Content Include="Images\Products\product_88.jpg" />
+    <Content Include="Images\Products\product_89.jpg" />
+    <Content Include="Images\Products\product_9.jpg" />
+    <Content Include="Images\Products\product_90.jpg" />
+    <Content Include="Images\Products\product_91.jpg" />
+    <Content Include="Images\Products\product_92.jpg" />
+    <Content Include="Images\Products\product_93.jpg" />
+    <Content Include="Images\Products\product_94.jpg" />
+    <Content Include="Images\Products\product_95.jpg" />
+    <Content Include="Images\Products\product_96.jpg" />
+    <Content Include="Images\Products\product_97.jpg" />
+    <Content Include="Images\Products\product_98.jpg" />
+    <Content Include="Images\Products\product_99.jpg" />
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Styles\Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Acerca.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Opciones.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Puntos.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LugarDetalles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Scan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>
