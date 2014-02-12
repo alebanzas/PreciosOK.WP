@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
-  <App xmlns="" ProductID="{67b2f74a-c014-4da3-a4f5-c57a7c25c1e0}" Title="Precios OK" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="AleBanzas" Description="Sample description" Publisher="AleBanzas" BitsPerPixel="32">
+  <App xmlns="" ProductID="{67b2f74a-c014-4da3-a4f5-c57a7c25c1e0}" Title="Precios Cuidados" RuntimeType="Silverlight" Version="1.0.0.1" Genre="apps.normal" Author="AleBanzas" Description="Sample description" Publisher="AleBanzas" BitsPerPixel="32">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_LOCATION" />
