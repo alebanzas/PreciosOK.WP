@@ -50,7 +50,7 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel x:Name="OptionSelectionPanel" Visibility="Visible" Canvas.ZIndex="99" Background="#0071B7" VerticalAlignment="Top" Height="780">
+        <StackPanel x:Name="OptionSelectionPanel" Visibility="Collapsed" Canvas.ZIndex="99" Background="#0071B7" VerticalAlignment="Top" Height="780">
             <TextBlock Margin="22,12,0,0" FontSize="30" Foreground="White">Región:</TextBlock>
             <toolkit:ListPicker x:Name="RegionList" SelectionChanged="RegionList_OnSelectionChanged" Width="430" FullModeHeader="Región"></toolkit:ListPicker>
 
