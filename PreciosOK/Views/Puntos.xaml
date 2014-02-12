@@ -50,6 +50,16 @@
             </StackPanel>
         </StackPanel>
 
+        <StackPanel x:Name="OptionSelectionPanel" Visibility="Collapsed" Canvas.ZIndex="99" Background="#0071B7" VerticalAlignment="Top" Height="780">
+            <TextBlock Margin="22,12,0,0" FontSize="30">Región:</TextBlock>
+            <toolkit:ListPicker x:Name="RegionList" Width="430" FullModeHeader="Región"></toolkit:ListPicker>
+
+            <TextBlock Margin="22,12,0,0" FontSize="30">Mercados:</TextBlock>
+            <toolkit:ListPicker x:Name="MarketList" Width="430" FullModeHeader="Mercados"></toolkit:ListPicker>
+
+            <Button Click="ButtonBase_OnClick">COMENZAR!</Button>
+        </StackPanel>
+
         <controls:Panorama Title="Precios Cuidados" Canvas.ZIndex="9" TitleTemplate="{StaticResource MediumPanoramaTitle}">
 
             <controls:PanoramaItem Header="lista" HeaderTemplate="{StaticResource SmallPanoramaTitle}">
@@ -131,6 +141,7 @@
             <shell:ApplicationBarIconButton Text="escanear" IconUri="/Images/Icons/appbar.feature.code.png"  Click="CodeSearch_Click" />
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="Acerca de" Click="Acerca_Click"/>
+                <shell:ApplicationBarMenuItem Text="Cambiar zona" Click="CambiarZona_Click"/>
                 <shell:ApplicationBarMenuItem Text="Opciones" Click="Opciones_Click"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>

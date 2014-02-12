@@ -45,14 +45,32 @@ namespace PreciosOK.Views
             MobFoxAdControl.PublisherID = App.Configuration.MobFoxID;
             MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
 
-            //TODO: cambio de region y tipo
-            App.Configuration.SelectedRegion = 0;
-            App.Configuration.SelectedMarket = 0;
 
+            RegionList.ItemsSource = App.Configuration.GetRegions();
+            MarketList.ItemsSource = App.Configuration.GetMarkets();
+
+            if (!App.Configuration.SelectedMarket.HasValue ||
+                !App.Configuration.SelectedRegion.HasValue)
+            {
+                SetApplicationBarEnabled(false);
+                OptionSelectionPanel.Visibility = Visibility.Visible;
+            }
+            
             StatusChecker.Check("Home");
 
             DataContext = ViewModel;
             Loaded += Page_Loaded;
+        }
+
+        void SetApplicationBarEnabled(bool isEnabled)
+        {
+            var applicationBarIconButton = ApplicationBar.Buttons[0] as ApplicationBarIconButton;
+            if (applicationBarIconButton != null)
+                applicationBarIconButton.IsEnabled = isEnabled;
+
+            applicationBarIconButton = ApplicationBar.Buttons[1] as ApplicationBarIconButton;
+            if (applicationBarIconButton != null)
+                applicationBarIconButton.IsEnabled = isEnabled;
         }
 
         void Page_Loaded(object sender, RoutedEventArgs e)
@@ -169,6 +187,20 @@ namespace PreciosOK.Views
         private void CodeSearch_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Views/Scan.xaml", UriKind.Relative));
+        }
+
+        private void CambiarZona_Click(object sender, EventArgs e)
+        {
+            OptionSelectionPanel.Visibility = Visibility.Visible;
+        }
+        
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Configuration.SelectedRegion = RegionList.SelectedIndex;
+            App.Configuration.SelectedMarket = MarketList.SelectedIndex;
+
+            SetApplicationBarEnabled(true);
+            OptionSelectionPanel.Visibility = Visibility.Collapsed;
         }
     }
 
