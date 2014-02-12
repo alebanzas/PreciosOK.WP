@@ -73,7 +73,7 @@ namespace PreciosOK.Helpers
         }
 
 
-        public int SelectedRegion { get; set; }
+        public int? SelectedRegion { get; set; }
 
         private readonly List<KeyValuePair<int, string>> _regions = new List<KeyValuePair<int, string>>
         {
@@ -84,7 +84,7 @@ namespace PreciosOK.Helpers
             new KeyValuePair<int, string>(4, "Patagonia"),
         };
 
-        public int SelectedMarket { get; set; }
+        public int? SelectedMarket { get; set; }
 
         private readonly List<KeyValuePair<int, string>> _markets = new List<KeyValuePair<int, string>>
         {
@@ -109,6 +109,11 @@ namespace PreciosOK.Helpers
         public List<KeyValuePair<int, string>> GetRegions()
         {
             return _regions;
+        }
+
+        public List<KeyValuePair<int, string>> GetMarkets()
+        {
+            return _markets;
         }
 
         public List<KeyValuePair<int, string>> GetMarketsByRegions(int region)
