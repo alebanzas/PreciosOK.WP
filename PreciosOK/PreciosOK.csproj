@@ -58,6 +58,12 @@
       <HintPath>..\..\lib\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="MobFox.Ads">
+      <HintPath>..\lib\MobFox.Ads.dll</HintPath>
+    </Reference>
+    <Reference Include="MobFox.Ads.LocationAware">
+      <HintPath>..\lib\MobFox.Ads.LocationAware.dll</HintPath>
+    </Reference>
     <Reference Include="system.data.linq" />
     <Reference Include="System.Device" />
     <Reference Include="System.Runtime.Serialization" />
