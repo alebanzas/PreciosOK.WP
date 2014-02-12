@@ -54,7 +54,7 @@
 
             <controls:PanoramaItem Header="lista" HeaderTemplate="{StaticResource SmallPanoramaTitle}">
                 <Grid Margin="10,10,0,0" HorizontalAlignment="Left" Grid.Row="1">
-                    <ListBox x:Name="List" Height="510" Margin="0,0,0,10" ItemsSource="{Binding Estaciones}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="LstLugares_SelectionChanged">
+                    <ListBox Canvas.ZIndex="1" x:Name="List" Height="510" Margin="0,0,0,10" ItemsSource="{Binding Estaciones}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="LstLugares_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -98,8 +98,8 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    
-                    <ads:AdControl Name="MobFoxAdControl" VerticalAlignment="Top" Margin="0,445,0,0" />
+
+                    <ads:AdControl Canvas.ZIndex="2" Name="MobFoxAdControl" VerticalAlignment="Bottom" />
                 </Grid>
             </controls:PanoramaItem>
 
