@@ -15,7 +15,8 @@
     shell:SystemTray.BackgroundColor="#0071B7"
     xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
     xmlns:jwMaps="clr-namespace:JeffWilcox.Controls;assembly=JeffWilcox.Maps"
-    xmlns:geo="clr-namespace:System.Device.Location;assembly=System.Device">
+    xmlns:geo="clr-namespace:System.Device.Location;assembly=System.Device"
+    xmlns:ads="clr-namespace:MobFox.Ads;assembly=MobFox.Ads">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot">
@@ -43,6 +44,8 @@
 
             <Image x:Name="Image"></Image>
         </StackPanel>
+
+        <ads:AdControl Grid.Row="2" Canvas.ZIndex="2" x:Name="MobFoxAdControl" VerticalAlignment="Bottom" />
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>

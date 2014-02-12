@@ -24,6 +24,9 @@ namespace PreciosOK.Views
         {
             InitializeComponent();
             Unloaded += Page_UnLoaded;
+
+            MobFoxAdControl.PublisherID = App.Configuration.MobFoxID;
+            MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
         }
 
         private void Page_UnLoaded(object sender, RoutedEventArgs e)
