@@ -40,12 +40,15 @@ namespace PreciosOK.Helpers
             IsLocationEnabledByPhone = true;
             IsLocationEnabledByAppConfig = true;
             IsRated = false;
+            IsPromoted = false;
             IsInitialized = true;
             
             Config.Set(this);
         }
 
         public bool IsRated { get; set; }
+
+        public bool IsPromoted { get; set; }
 
         public bool IsInitialized { get; set; }
 
