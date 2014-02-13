@@ -9,7 +9,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="Landscape" Orientation="Landscape"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
@@ -20,7 +20,7 @@
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
 
-        <Canvas x:Name="viewfinderCanvas">
+        <Canvas x:Name="viewfinderCanvas" Margin="0,0,0,37" Grid.RowSpan="2">
 
             <!--Camera viewfinder -->
             <Canvas.Background>
@@ -29,15 +29,15 @@
                         <CompositeTransform
                             x:Name="viewfinderTransform"
                             CenterX="0.5"
-                            CenterY="0.5"
-                            Rotation="90"/>
+                            CenterY="0.5"/>
                     </VideoBrush.RelativeTransform>
                 </VideoBrush>
             </Canvas.Background>
-            <Rectangle Fill="Red" Canvas.ZIndex="2" HorizontalAlignment="Left" Height="648" Stroke="Black" VerticalAlignment="Top" Width="7" Canvas.Left="230" Canvas.Top="10"/>
+            <Rectangle Fill="Red" Canvas.ZIndex="2" HorizontalAlignment="Left" Width="728" Stroke="Black" VerticalAlignment="Top" Height="7" Canvas.Top="234"/>
+            <TextBlock Canvas.Left="387" TextWrapping="Wrap" Text="Tocá el botón de cámara para enfocar" Width="341" RenderTransformOrigin="0.5,0.5" />
         </Canvas>
         <!--Used for debugging >-->
-        <StackPanel Grid.Row="1" Margin="20, 0">
+        <StackPanel Grid.Row="1" Margin="20,68,20,0">
             <TextBlock x:Name="tbBarcodeType" FontWeight="ExtraBold" />
             <TextBlock x:Name="tbBarcodeData" FontWeight="ExtraBold" TextWrapping="Wrap" />
         </StackPanel>

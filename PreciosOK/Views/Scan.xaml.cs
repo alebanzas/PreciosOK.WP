@@ -108,7 +108,7 @@ namespace PreciosOK.Views
                 if (long.TryParse(obj.Text, out code))
                 {
                     var product = App.Configuration.GetByBarCode(code);
-                    if (product != null)
+                    if (product != null && code != 0)
                     {
                         var uri = new Uri(string.Format("/Views/LugarDetalles.xaml?id={0}", product.Id), UriKind.Relative);
                         NavigationService.Navigate(uri);
