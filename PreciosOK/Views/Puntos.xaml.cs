@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Device.Location;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -11,7 +11,6 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Tasks;
 using PreciosOK.Helpers;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Controls.Maps;
 using Microsoft.Phone.Shell;
 using PreciosOK.Models;
 
@@ -20,12 +19,11 @@ namespace PreciosOK.Views
     public partial class Puntos
     {
         private static EstacionesStatusViewModel _viewModel = new EstacionesStatusViewModel();
-        public static EstacionesStatusViewModel ViewModel
+        private static EstacionesStatusViewModel ViewModel
         {
             get { return _viewModel ?? (_viewModel = new EstacionesStatusViewModel()); }
         }
 
-        Pushpin _posicionActual;
         private string _categoria;
         private bool _isSearching;
         private bool _isChanging;
@@ -42,7 +40,7 @@ namespace PreciosOK.Views
         {
             InitializeComponent();
 
-            TxtVersion.Text = App.Configuration.Version;
+            TxtVersion.Text = "Versión " + App.Configuration.Version;
 
             MobFoxAdControl.PublisherID = App.Configuration.MobFoxID;
             MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
@@ -113,6 +111,29 @@ namespace PreciosOK.Views
                     };
                 
                 MostrarLugares();   
+            }
+
+            if (!App.Configuration.IsPromoted)
+            {
+                Dispatcher.BeginInvoke(() =>
+                {
+                    Thread.Sleep(4000);
+
+                    if (MessageBox.Show("Probá la guía de transporte para Windows Phone!", "Vivis en Buenos Aires?", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                    {
+                        App.Configuration.IsPromoted = true;
+                        Config.Set(App.Configuration);
+
+                        //Show an application, using the default ContentType.
+                        var marketplaceDetailTask = new MarketplaceDetailTask
+                        {
+                            ContentIdentifier = "98250785-9804-4439-af3f-63ef88c5998c",
+                            ContentType = MarketplaceContentType.Applications
+                        };
+
+                        marketplaceDetailTask.Show();
+                    }
+                });   
             }
         }
 
@@ -204,8 +225,8 @@ namespace PreciosOK.Views
             var selectedListBoxItem = List.ItemContainerGenerator.ContainerFromItem(((MenuItem)sender).DataContext) as ListBoxItem;
             if (selectedListBoxItem == null) return;
             var selectedIndex = List.ItemContainerGenerator.IndexFromContainer(selectedListBoxItem);
-            var _estacion = (Product)List.Items[selectedIndex];
-            TileManager.Set(new Uri(string.Format("/Views/LugarDetalles.xaml?id={0}", _estacion.Id), UriKind.Relative), "", new Uri(string.Format("/Images/Products/product_{0}.jpg", _estacion.Id), UriKind.Relative));
+            var estacion = (Product)List.Items[selectedIndex];
+            TileManager.Set(new Uri(string.Format("/Views/LugarDetalles.xaml?id={0}", estacion.Id), UriKind.Relative), "", new Uri(string.Format("/Images/Products/product_{0}.jpg", estacion.Id), UriKind.Relative));
         }
 
         private void CodeSearch_Click(object sender, EventArgs e)
@@ -296,9 +317,6 @@ namespace PreciosOK.Views
             Pattern = Pattern.Replace("#", "");
 
             byte a = 255;
-            byte r = 255;
-            byte g = 255;
-            byte b = 255;
 
             int start = 0;
 
@@ -310,9 +328,9 @@ namespace PreciosOK.Views
             }
 
             //convert RGB characters to bytes
-            r = byte.Parse(Pattern.Substring(start, 2), System.Globalization.NumberStyles.HexNumber);
-            g = byte.Parse(Pattern.Substring(start + 2, 2), System.Globalization.NumberStyles.HexNumber);
-            b = byte.Parse(Pattern.Substring(start + 4, 2), System.Globalization.NumberStyles.HexNumber);
+            byte r = byte.Parse(Pattern.Substring(start, 2), System.Globalization.NumberStyles.HexNumber);
+            byte g = byte.Parse(Pattern.Substring(start + 2, 2), System.Globalization.NumberStyles.HexNumber);
+            byte b = byte.Parse(Pattern.Substring(start + 4, 2), System.Globalization.NumberStyles.HexNumber);
 
             return Color.FromArgb(a, r, g, b);
         }
