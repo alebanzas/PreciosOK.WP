@@ -360,6 +360,7 @@
     <Content Include="Images\Products\product_97.jpg" />
     <Content Include="Images\Products\product_98.jpg" />
     <Content Include="Images\Products\product_99.jpg" />
+    <Content Include="Images\supermercados.png" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
