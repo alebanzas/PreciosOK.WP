@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Navigation;
 using System.Windows.Threading;
@@ -26,6 +27,7 @@ namespace PreciosOK.Views
         }
 
         private string _categoria;
+        private bool _isRefining;
         private bool _isSearching;
         private bool _isChanging;
 
@@ -111,7 +113,7 @@ namespace PreciosOK.Views
                         new CategoryItem { Name = "CANASTA ESCOLAR", Id = "CANASTA ESCOLAR"},
                     };
                 
-                MostrarLugares();   
+                MostrarLugares(null);   
             }
 
             if (!App.Configuration.IsPromoted)
@@ -141,11 +143,11 @@ namespace PreciosOK.Views
             }
         }
 
-        private void MostrarLugares()
+        private void MostrarLugares(string text)
         {
             ViewModel.Estaciones.Clear();
 
-            var list = App.Configuration.GetProducts(_categoria);
+            var list = App.Configuration.GetProducts(_categoria, text);
 
             foreach (var product in list)
             {
@@ -181,10 +183,12 @@ namespace PreciosOK.Views
             NavigationService.Navigate(new Uri("/Views/Acerca.xaml", UriKind.Relative));
         }
 
-        private void ButtonSearch_Click(object sender, EventArgs e)
+        private void ButtonRefine_Click(object sender, EventArgs e)
         {
             CategoryList.Open();
-            _isSearching = true;
+            _isRefining = true;
+            _isSearching = false;
+            SearchPanel.Margin = new Thickness(0, -850, 0, 0);
         }
 
         protected override void OnBackKeyPress(CancelEventArgs e)
@@ -196,18 +200,26 @@ namespace PreciosOK.Views
                 e.Cancel = true;
             }
 
+            if (_isRefining)
+            {
+                _isRefining = false;
+                ProcesarBusqueda(null);
+                e.Cancel = true;
+            }
+
             if (_isSearching)
             {
+                SearchPanel.Margin = new Thickness(0, -850, 0, 0);
                 _isSearching = false;
                 ProcesarBusqueda(null);
                 e.Cancel = true;
             }
         }
 
-        private void ProcesarBusqueda(string category)
+        private void ProcesarBusqueda(string category, string text = "")
         {
-            _categoria = category;
-            MostrarLugares();
+            _categoria = "".Equals(text) ? category : null;
+            MostrarLugares(text);
         }
 
         private void CategoryList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -249,7 +261,7 @@ namespace PreciosOK.Views
             App.Configuration.SelectedRegion = RegionList.SelectedIndex;
             App.Configuration.SelectedMarket = MarketList.SelectedIndex;
 
-            MostrarLugares();
+            MostrarLugares(null);
 
             _isChanging = false;
             SetApplicationBarEnabled(true);
@@ -270,6 +282,32 @@ namespace PreciosOK.Views
         {
             var marketplaceReviewTask = new MarketplaceReviewTask();
             marketplaceReviewTask.Show();
+        }
+
+        private void AcBox_OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            AcBox.Text = string.Empty;
+        }
+
+        private void AcBox_OnKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ProcesarBusqueda(_categoria, AcBox.Text);
+            }
+        }
+
+        private void ButtonBuscar_OnClick(object sender, RoutedEventArgs e)
+        {
+            ProcesarBusqueda(_categoria, AcBox.Text);
+        }
+
+        private void ButtonSearch_Click(object sender, EventArgs e)
+        {
+            SearchPanel.Margin = new Thickness(0, -450, 0, 0);
+            AcBox.Focus();
+            _isSearching = true;
+            _isRefining = false;
         }
     }
 

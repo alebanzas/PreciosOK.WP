@@ -44,9 +44,14 @@
 
         <StackPanel Background="#0071B7" VerticalAlignment="Top" Height="170"></StackPanel>
 
+        <StackPanel Margin="0,-200,0,0">
+            <toolkit:ListPicker SelectionChanged="CategoryList_OnSelectionChanged" x:Name="CategoryList" Width="430" FullModeHeader="Categorias" FullModeItemTemplate="{StaticResource PickerFullModeItemTemplate}"></toolkit:ListPicker>
+        </StackPanel>
+        
         <StackPanel x:Name="SearchPanel" Background="#0071B7" Canvas.ZIndex="10" Margin="0,-850,0,0" Height="80">
             <StackPanel Orientation="Horizontal" Margin="14,0">
-                <toolkit:ListPicker SelectionChanged="CategoryList_OnSelectionChanged" x:Name="CategoryList" Width="430" FullModeHeader="Categorias" FullModeItemTemplate="{StaticResource PickerFullModeItemTemplate}"></toolkit:ListPicker>
+                <TextBox x:Name="AcBox" Height="80" Width="320" Tap="AcBox_OnGotFocus" KeyUp="AcBox_OnKeyUp"/>
+                <Button x:Name="BtnBuscar" Click="ButtonBuscar_OnClick" Opacity="1">Buscar</Button>
             </StackPanel>
         </StackPanel>
 
@@ -153,7 +158,8 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" Mode="Default" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton Text="filtrar" IconUri="/Images/Icons/search.refine.png"  Click="ButtonSearch_Click" />
+            <shell:ApplicationBarIconButton Text="Buscar" IconUri="/Images/Icons/feature.search.png"  Click="ButtonSearch_Click" />
+            <shell:ApplicationBarIconButton Text="filtrar" IconUri="/Images/Icons/search.refine.png"  Click="ButtonRefine_Click" />
             <shell:ApplicationBarIconButton Text="escanear" IconUri="/Images/Icons/appbar.feature.code.png"  Click="CodeSearch_Click" />
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="Cambiar zona" Click="CambiarZona_Click"/>
