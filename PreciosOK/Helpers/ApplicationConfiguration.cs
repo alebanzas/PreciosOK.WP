@@ -58,11 +58,15 @@ namespace PreciosOK.Helpers
 
         public bool IsLocationEnabledByAppConfig { get; set; }
 
-        public IList<Product> GetProducts(string category)
+        public IList<Product> GetProducts(string category, string text)
         {
             if (!string.IsNullOrWhiteSpace(category))
             {
                 return products.Where(x => x.Market == SelectedMarket && x.Region == SelectedRegion && x.Category == category).ToList();
+            }
+            if (!string.IsNullOrWhiteSpace(text))
+            {
+                return products.Where(x => x.Market == SelectedMarket && x.Region == SelectedRegion && (x.Name.Contains(text.ToUpperInvariant()) || x.Brand.Contains(text.ToUpperInvariant()) || x.Provider.Contains(text.ToUpperInvariant()))).ToList();
             }
             return products.Where(x => x.Market == SelectedMarket && x.Region == SelectedRegion).ToList();
         }
