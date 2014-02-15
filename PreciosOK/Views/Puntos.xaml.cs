@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Navigation;
+using System.Windows.Threading;
 using Microsoft.Phone.Tasks;
 using PreciosOK.Helpers;
 using Microsoft.Phone.Controls;
@@ -115,10 +116,10 @@ namespace PreciosOK.Views
 
             if (!App.Configuration.IsPromoted)
             {
-                Dispatcher.BeginInvoke(() =>
+                DispatcherTimer dt = new DispatcherTimer();
+                dt.Interval = TimeSpan.FromSeconds(4);
+                dt.Tick += delegate
                 {
-                    Thread.Sleep(4000);
-
                     if (MessageBox.Show("Probá la guía de transporte para Windows Phone!", "Vivis en Buenos Aires?", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                     {
                         App.Configuration.IsPromoted = true;
@@ -133,7 +134,10 @@ namespace PreciosOK.Views
 
                         marketplaceDetailTask.Show();
                     }
-                });   
+
+                    dt.Stop();
+                };
+                dt.Start();
             }
         }
 
