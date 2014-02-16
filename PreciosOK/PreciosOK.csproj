@@ -108,6 +108,9 @@
     <Compile Include="Views\Acerca.xaml.cs">
       <DependentUpon>Acerca.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Denuncia.xaml.cs">
+      <DependentUpon>Denuncia.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LugarDetalles.xaml.cs">
       <DependentUpon>LugarDetalles.xaml</DependentUpon>
     </Compile>
@@ -396,6 +399,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\Acerca.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Denuncia.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
