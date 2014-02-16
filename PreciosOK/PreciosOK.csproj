@@ -162,6 +162,7 @@
     <Content Include="Images\Icons\appbar.feature.pin.rest.png" />
     <Content Include="Images\Icons\appbar.minus.rest.png" />
     <Content Include="Images\Icons\appbar.new.rest.png" />
+    <Content Include="Images\Icons\feature.denuncia.png" />
     <Content Include="Images\Icons\feature.search.png" />
     <Content Include="Images\Icons\feature.share.png" />
     <Content Include="Images\Icons\search.refine.png" />

@@ -47,6 +47,7 @@
 
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar x:Name="appBar" IsVisible="True" IsMenuEnabled="True" Mode="Default"  Opacity="1.0">
+            <shell:ApplicationBarIconButton IconUri="/Images/Icons/feature.denuncia.png" Text="denunciar" Click="Denunciar"/>
             <shell:ApplicationBarIconButton IconUri="/Images/Icons/feature.share.png" Text="Compartir" Click="Share"/>
             <shell:ApplicationBarIconButton IconUri="/Images/Icons/appbar.feature.pin.rest.png" Text="Anclar" Click="Pin"/>
         </shell:ApplicationBar>

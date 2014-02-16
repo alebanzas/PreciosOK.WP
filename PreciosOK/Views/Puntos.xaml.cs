@@ -84,6 +84,10 @@ namespace PreciosOK.Views
             applicationBarIconButton = ApplicationBar.Buttons[1] as ApplicationBarIconButton;
             if (applicationBarIconButton != null)
                 applicationBarIconButton.IsEnabled = isEnabled;
+
+            applicationBarIconButton = ApplicationBar.Buttons[2] as ApplicationBarIconButton;
+            if (applicationBarIconButton != null)
+                applicationBarIconButton.IsEnabled = isEnabled;
         }
 
         void Page_Loaded(object sender, RoutedEventArgs e)
@@ -303,6 +307,17 @@ namespace PreciosOK.Views
             AcBox.Focus();
             _isSearching = true;
             _isRefining = false;
+        }
+
+        private void Denuncia_Click(object sender, RoutedEventArgs e)
+        {
+            if (List.ItemContainerGenerator == null) return;
+            var selectedListBoxItem = List.ItemContainerGenerator.ContainerFromItem(((MenuItem)sender).DataContext) as ListBoxItem;
+            if (selectedListBoxItem == null) return;
+            var selectedIndex = List.ItemContainerGenerator.IndexFromContainer(selectedListBoxItem);
+            var estacion = (Product)List.Items[selectedIndex];
+            var uri = new Uri(string.Format("/Views/Denuncia.xaml?id={0}", estacion.Id), UriKind.Relative);
+            NavigationService.Navigate(uri);
         }
     }
 

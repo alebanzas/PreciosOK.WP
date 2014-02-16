@@ -78,7 +78,8 @@
                                 <StackPanel>
                                     <toolkit:ContextMenuService.ContextMenu>
                                         <toolkit:ContextMenu>
-                                            <toolkit:MenuItem Header="anclar al inicio" Foreground="Black" Click="PinToStart_Click"/>
+                                            <toolkit:MenuItem Header="anclar al inicio" Background="White" Foreground="Black" Click="PinToStart_Click"/>
+                                            <toolkit:MenuItem Header="denunciar" Background="White" Foreground="Black" Click="Denuncia_Click"/>
                                         </toolkit:ContextMenu>
                                     </toolkit:ContextMenuService.ContextMenu>
                                     <StackPanel Orientation="Horizontal">
