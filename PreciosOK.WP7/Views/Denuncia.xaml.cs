@@ -10,10 +10,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using PreciosOK.Helpers;
-using PreciosOK.Models;
+using PreciosOK.WP7.Helpers;
+using PreciosOK.WP7.Models;
 
-namespace PreciosOK.Views
+namespace PreciosOK.WP7.Views
 {
     public partial class Denuncia : PhoneApplicationPage
     {

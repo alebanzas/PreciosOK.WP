@@ -67,6 +67,7 @@
     <Reference Include="system.data.linq" />
     <Reference Include="System.Device" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Servicemodel.Web" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -94,6 +95,9 @@
     <Compile Include="Models\ProductIdImagenConverter.cs" />
     <Compile Include="Views\Acerca.xaml.cs">
       <DependentUpon>Acerca.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Denuncia.xaml.cs">
+      <DependentUpon>Denuncia.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Opciones.xaml.cs">
       <DependentUpon>Opciones.xaml</DependentUpon>
@@ -132,6 +136,7 @@
     <Content Include="Images\Icons\appbar.feature.pin.rest.png" />
     <Content Include="Images\Icons\appbar.minus.rest.png" />
     <Content Include="Images\Icons\appbar.new.rest.png" />
+    <Content Include="Images\Icons\feature.denuncia.png" />
     <Content Include="Images\Icons\feature.share.png" />
     <Content Include="Images\Icons\feature.search.png" />
     <Content Include="Images\Icons\search.refine.png" />
@@ -369,6 +374,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Acerca.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Denuncia.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

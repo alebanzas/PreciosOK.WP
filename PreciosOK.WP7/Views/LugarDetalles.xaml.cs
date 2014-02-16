@@ -72,5 +72,11 @@ namespace PreciosOK.WP7.Views
                 };
             shareLinkTask.Show();
         }
+
+        private void Denunciar(object sender, EventArgs e)
+        {
+            var uri = new Uri(string.Format("/Views/Denuncia.xaml?id={0}", _estacion.Id), UriKind.Relative);
+            NavigationService.Navigate(uri);
+        }
     }
 }
