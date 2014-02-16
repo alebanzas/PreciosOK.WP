@@ -43,7 +43,8 @@ namespace PreciosOK.Views
 
         void CameraButtons_ShutterKeyHalfPressed(object sender, EventArgs e)
         {
-            _phoneCamera.Focus();
+            if(_phoneCamera != null)
+                _phoneCamera.Focus();
         }
 
         protected override void OnNavigatingFrom(System.Windows.Navigation.NavigatingCancelEventArgs e)
