@@ -8,6 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:models="clr-namespace:PreciosOK.Models"
+    xmlns:googleAds="clr-namespace:GoogleAds;assembly=GoogleAds"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -49,7 +50,7 @@
         <StackPanel Margin="0,-200,0,0">
             <toolkit:ListPicker SelectionChanged="CategoryList_OnSelectionChanged" x:Name="CategoryList" Width="430" FullModeHeader="Categorias" FullModeItemTemplate="{StaticResource PickerFullModeItemTemplate}"></toolkit:ListPicker>
         </StackPanel>
-        
+
         <StackPanel x:Name="SearchPanel" Background="#0071B7" Canvas.ZIndex="10" Margin="0,-850,0,0" Height="80">
             <StackPanel Orientation="Horizontal" Margin="14,0">
                 <TextBox x:Name="AcBox" Height="80" Width="320" Tap="AcBox_OnGotFocus" KeyUp="AcBox_OnKeyUp"/>
@@ -71,7 +72,7 @@
 
             <phone:PanoramaItem Header="lista" HeaderTemplate="{StaticResource SmallPanoramaTitle}">
                 <Grid Margin="10,10,0,0" HorizontalAlignment="Left" Grid.Row="1">
-                    <ListBox Canvas.ZIndex="1" x:Name="List" Margin="0,0,0,54" ItemsSource="{Binding Estaciones}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="LstLugares_SelectionChanged">
+                    <ListBox Canvas.ZIndex="1" x:Name="List" Margin="0,-40,0,75" ItemsSource="{Binding Estaciones}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="LstLugares_SelectionChanged" Grid.ColumnSpan="2">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -116,7 +117,9 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
 
-                    <!--ads:AdControl Canvas.ZIndex="2" Name="MobFoxAdControl" VerticalAlignment="Bottom" /-->
+                    <googleAds:AdView AdUnitID="ca-app-pub-4463374879380815/7871290489"
+                          Format="Banner"
+                          VerticalAlignment="Bottom" Grid.ColumnSpan="2" />
                 </Grid>
             </phone:PanoramaItem>
 
@@ -127,7 +130,7 @@
                     </StackPanel>
                 </ScrollViewer>
             </phone:PanoramaItem>
-            
+
             <phone:PanoramaItem Header="acerca de..." HeaderTemplate="{StaticResource SmallPanoramaTitle}">
                 <ScrollViewer>
                     <StackPanel Margin="12,0,0,0">

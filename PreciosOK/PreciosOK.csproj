@@ -417,6 +417,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="GoogleAds">
+      <HintPath>..\lib\GoogleAds.dll</HintPath>
+    </Reference>
     <Reference Include="JeffWilcox.PhoneThemeManager">
       <HintPath>..\packages\PhoneThemeManager.2.0\lib\windowsphone8\JeffWilcox.PhoneThemeManager.dll</HintPath>
     </Reference>
