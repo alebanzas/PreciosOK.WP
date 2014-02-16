@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -45,8 +44,8 @@ namespace PreciosOK.Views
 
             TxtVersion.Text = "Versión " + App.Configuration.Version;
 
-            MobFoxAdControl.PublisherID = App.Configuration.MobFoxID;
-            MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
+            //MobFoxAdControl.PublisherID = App.Configuration.MobFoxID;
+            //MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
 
 
             RegionList.ItemsSource = App.Configuration.GetRegions().Select(x => x.Value);
