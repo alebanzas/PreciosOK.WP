@@ -1,0 +1,173 @@
+﻿<phone:PhoneApplicationPage xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"  
+    x:Class="PreciosOK.Views.Puntos"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:ads="clr-namespace:MobFox.Ads;assembly=MobFox.Ads"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.BackgroundColor="#0071B7"
+    shell:SystemTray.ForegroundColor="#0071B7">
+
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Name="PickerFullModeItemTemplate">
+            <StackPanel Orientation="Horizontal" Margin="16 21 0 20">
+                <TextBlock Text="{Binding Name}" Margin="16 0 0 0" FontSize="43"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Name="SmallPanoramaTitle">
+            <ContentPresenter>
+                <TextBlock Text="{Binding}" Foreground="White" FontSize="50" Margin="0,0,0,0" />
+            </ContentPresenter>
+        </DataTemplate>
+
+        <DataTemplate x:Name="MediumPanoramaTitle">
+            <ContentPresenter>
+                <TextBlock Text="{Binding}" Foreground="White" FontSize="70" Margin="12,70,0,0" />
+            </ContentPresenter>
+        </DataTemplate>
+
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot">
+
+        <StackPanel Background="#0071B7" VerticalAlignment="Top" Height="170"></StackPanel>
+
+        <StackPanel Margin="0,-200,0,0">
+            <toolkit:ListPicker SelectionChanged="CategoryList_OnSelectionChanged" x:Name="CategoryList" Width="430" FullModeHeader="Categorias" FullModeItemTemplate="{StaticResource PickerFullModeItemTemplate}"></toolkit:ListPicker>
+        </StackPanel>
+        
+        <StackPanel x:Name="SearchPanel" Background="#0071B7" Canvas.ZIndex="10" Margin="0,-850,0,0" Height="80">
+            <StackPanel Orientation="Horizontal" Margin="14,0">
+                <TextBox x:Name="AcBox" Height="80" Width="320" Tap="AcBox_OnGotFocus" KeyUp="AcBox_OnKeyUp"/>
+                <Button x:Name="BtnBuscar" Click="ButtonBuscar_OnClick" Opacity="1">Buscar</Button>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel x:Name="OptionSelectionPanel" Visibility="Collapsed" Canvas.ZIndex="99" Background="#0071B7" VerticalAlignment="Top" Height="780">
+            <TextBlock Margin="22,12,0,0" FontSize="30" Foreground="White">Región:</TextBlock>
+            <toolkit:ListPicker x:Name="RegionList" SelectionChanged="RegionList_OnSelectionChanged" Width="430" FullModeHeader="Región"></toolkit:ListPicker>
+
+            <TextBlock Margin="22,12,0,0" FontSize="30" Foreground="White">Mercados:</TextBlock>
+            <toolkit:ListPicker x:Name="MarketList" Width="430" FullModeHeader="Mercados"></toolkit:ListPicker>
+
+            <Button Click="ButtonBase_OnClick" Foreground="White">COMENZAR!</Button>
+        </StackPanel>
+
+        <controls:Panorama Title="Precios Cuidados" Canvas.ZIndex="9" TitleTemplate="{StaticResource MediumPanoramaTitle}">
+
+            <controls:PanoramaItem Header="lista" HeaderTemplate="{StaticResource SmallPanoramaTitle}">
+                <Grid Margin="10,10,0,0" HorizontalAlignment="Left" Grid.Row="1">
+                    <ListBox Canvas.ZIndex="1" x:Name="List" Margin="0,0,0,54" ItemsSource="{Binding Estaciones}" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="LstLugares_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <toolkit:ContextMenuService.ContextMenu>
+                                        <toolkit:ContextMenu>
+                                            <toolkit:MenuItem Header="anclar al inicio" Foreground="Black" Click="PinToStart_Click"/>
+                                        </toolkit:ContextMenu>
+                                    </toolkit:ContextMenuService.ContextMenu>
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Width="100">
+                                            <Image Width="100" Source="{Binding Id, Converter={StaticResource ProductIdImagenConverter}}"></Image>
+                                        </StackPanel>
+                                        <StackPanel Width="230">
+                                            <TextBlock Margin="0,8,0,8"
+                                                TextWrapping="Wrap"
+                                                VerticalAlignment="Top"
+                                                HorizontalAlignment="Left"
+                                                Text="{Binding Path=Name}"/>
+                                            <TextBlock TextWrapping="Wrap"
+                                                Margin="0,0,0,8"
+                                                VerticalAlignment="Top"
+                                                HorizontalAlignment="Left"
+                                                Text="{Binding Path=Brand}" />
+                                        </StackPanel>
+                                        <StackPanel Width="80" HorizontalAlignment="Right" Orientation="Horizontal">
+                                            <TextBlock Margin="0,8,0,8"
+                                                TextWrapping="Wrap"
+                                                VerticalAlignment="Top"
+                                                HorizontalAlignment="Left"
+                                                Text="$"/>
+                                            <TextBlock TextWrapping="Wrap"
+                                                Margin="0,0,0,8"
+                                                VerticalAlignment="Top"
+                                                HorizontalAlignment="Left"
+                                                Text="{Binding Path=Price}"
+                                                Style="{StaticResource PhoneTextLargeStyle}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <ads:AdControl Canvas.ZIndex="2" Name="MobFoxAdControl" VerticalAlignment="Bottom" />
+                </Grid>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="supermercados" HeaderTemplate="{StaticResource SmallPanoramaTitle}">
+                <ScrollViewer>
+                    <StackPanel Margin="12,0,0,0">
+                        <Image Source="/Images/supermercados.png"></Image>
+                    </StackPanel>
+                </ScrollViewer>
+            </controls:PanoramaItem>
+            
+            <controls:PanoramaItem Header="acerca de..." HeaderTemplate="{StaticResource SmallPanoramaTitle}">
+                <ScrollViewer>
+                    <StackPanel Margin="12,0,0,0">
+                        <TextBlock x:Name="TxtVersion">Versión 0.0.0.0</TextBlock>
+                        <TextBlock TextWrapping="Wrap">
+                            Desarrollado por AleBanzas
+						    <LineBreak /><LineBreak />
+                            Encuentra toda la información sobre los precios cuidados. Aplicación no oficial.
+                            <LineBreak /><LineBreak /><LineBreak />
+                            La aplicación no almacena ningún tipo de información personal, ubicación, identificación de la red, ni del equipo. Solamente utiliza Internet para obtener información solicitada.
+                            <LineBreak /><LineBreak /><LineBreak />
+                            Notas de versión
+                            <LineBreak /><LineBreak />
+                            1.0.0.4: Busqueda por texto.
+                            <LineBreak /><LineBreak />
+                            1.0.0.3: Lista de supermercados.
+                            <LineBreak /><LineBreak />
+                            1.0.0.2: Ayuda visual en cámara.
+                            <LineBreak /><LineBreak />
+                            1.0.0.1: Cambios menores.
+                            <LineBreak /><LineBreak />
+                            1.0: Versión inicial. Lista de productos, filtro por categoria, escaneo de codigo de barras.
+						    <LineBreak /><LineBreak />
+                        </TextBlock>
+                    </StackPanel>
+                </ScrollViewer>
+            </controls:PanoramaItem>
+        </controls:Panorama>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" Mode="Default" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton Text="Buscar" IconUri="/Images/Icons/feature.search.png"  Click="ButtonSearch_Click" />
+            <shell:ApplicationBarIconButton Text="filtrar" IconUri="/Images/Icons/search.refine.png"  Click="ButtonRefine_Click" />
+            <shell:ApplicationBarIconButton Text="escanear" IconUri="/Images/Icons/appbar.feature.code.png"  Click="CodeSearch_Click" />
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Cambiar zona" Click="CambiarZona_Click"/>
+                <shell:ApplicationBarMenuItem Text="danos tus comentarios" Click="RateReview_Click"/>
+                <shell:ApplicationBarMenuItem Text="Opciones" Click="Opciones_Click"/>
+                <shell:ApplicationBarMenuItem Text="Acerca de" Click="Acerca_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
