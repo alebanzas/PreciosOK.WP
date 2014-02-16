@@ -34,6 +34,8 @@ namespace PreciosOK
             // Phone-specific initialization
             InitializePhoneApplication();
 
+            ThemeManager.ToLightTheme();
+
             LoadingBar.Instance.Initialize(RootFrame);
         }
 
