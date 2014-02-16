@@ -3,6 +3,7 @@ using System.Device.Location;
 using System.Linq;
 using System.Collections.Generic;
 using PreciosOK.WP7.Models;
+using System.Globalization;
 
 namespace PreciosOK.WP7.Helpers
 {
@@ -73,7 +74,9 @@ namespace PreciosOK.WP7.Helpers
 
         public Product GetByBarCode(long code)
         {
-            return products.FirstOrDefault(x => x.Market == SelectedMarket && x.Region == SelectedRegion && x.BarCode == code);
+            return products.FirstOrDefault(x => x.Market == SelectedMarket
+                   && x.Region == SelectedRegion
+                   && code.ToString(CultureInfo.InvariantCulture).StartsWith(x.BarCode.ToString(CultureInfo.InvariantCulture)));
         }
 
         public Product GetById(int id)
