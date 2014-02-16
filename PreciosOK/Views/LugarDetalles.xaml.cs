@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Device.Location;
 using System.Globalization;
-using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using PreciosOK.Helpers;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Controls.Maps;
-using Microsoft.Phone.Controls.Maps.Core;
 using Microsoft.Phone.Tasks;
 using PreciosOK.Models;
 
@@ -25,8 +20,8 @@ namespace PreciosOK.Views
             InitializeComponent();
             Unloaded += Page_UnLoaded;
 
-            MobFoxAdControl.PublisherID = App.Configuration.MobFoxID;
-            MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
+            //MobFoxAdControl.PublisherID = App.Configuration.MobFoxID;
+            //MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
         }
 
         private void Page_UnLoaded(object sender, RoutedEventArgs e)

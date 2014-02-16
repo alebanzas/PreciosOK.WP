@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Resources;
 
@@ -9,7 +8,7 @@ using System.Resources;
 [assembly: AssemblyTitle("PreciosOK")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("AleBanzas")]
 [assembly: AssemblyProduct("PreciosOK")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
@@ -21,7 +20,7 @@ using System.Resources;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8bd4db84-fef0-46d8-adb9-1af3f40a74a9")]
+[assembly: Guid("cb5fee26-ee9a-49c8-a88b-e01603ac4a94")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,6 +31,6 @@ using System.Resources;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.0.4")]
-[assembly: AssemblyFileVersion("1.0.0.4")]
+[assembly: AssemblyVersion("1.4.0.8")]
+[assembly: AssemblyFileVersion("1.4.0.8")]
 [assembly: NeutralResourcesLanguageAttribute("es-AR")]

@@ -1,15 +1,16 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using System.Windows.Navigation;
-using PreciosOK.Helpers;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using PreciosOK.Helpers;
 
 namespace PreciosOK
 {
     public partial class App : Application
     {
         private const string AppName = "PreciosOKWP";
-        private const string AppVersion = "1.0.0.4";
+        private const string AppVersion = "1.4.0.8";
 
         public static ApplicationConfiguration Configuration { get; set; }
 
@@ -17,23 +18,21 @@ namespace PreciosOK
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
         /// <returns>The root frame of the Phone Application.</returns>
-        public PhoneApplicationFrame RootFrame { get; private set; }
+        public static PhoneApplicationFrame RootFrame { get; private set; }
 
         /// <summary>
         /// Constructor for the Application object.
         /// </summary>
         public App()
         {
-            // Global handler for uncaught exceptions. 
+            // Global handler for uncaught exceptions.
             UnhandledException += Application_UnhandledException;
 
-            // Standard Silverlight initialization
+            // Standard XAML initialization
             InitializeComponent();
 
             // Phone-specific initialization
             InitializePhoneApplication();
-
-            ThemeManager.ToLightTheme();
 
             LoadingBar.Instance.Initialize(RootFrame);
         }
@@ -84,17 +83,21 @@ namespace PreciosOK
         // Code to execute if a navigation fails
         private void RootFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            if (System.Diagnostics.Debugger.IsAttached)
+            if (Debugger.IsAttached)
             {
                 // A navigation has failed; break into the debugger
-                System.Diagnostics.Debugger.Break();
+                Debugger.Break();
             }
         }
 
         // Code to execute on Unhandled Exceptions
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
-            
+            if (Debugger.IsAttached)
+            {
+                // An unhandled exception has occurred; break into the debugger
+                Debugger.Break();
+            }
         }
 
         #region Phone application initialization
@@ -116,6 +119,9 @@ namespace PreciosOK
             // Handle navigation failures
             RootFrame.NavigationFailed += RootFrame_NavigationFailed;
 
+            // Handle reset requests for clearing the backstack
+            RootFrame.Navigated += CheckForResetNavigation;
+
             // Ensure we don't initialize again
             phoneApplicationInitialized = true;
         }
@@ -129,6 +135,30 @@ namespace PreciosOK
 
             // Remove this handler since it is no longer needed
             RootFrame.Navigated -= CompleteInitializePhoneApplication;
+        }
+
+        private void CheckForResetNavigation(object sender, NavigationEventArgs e)
+        {
+            // If the app has received a 'reset' navigation, then we need to check
+            // on the next navigation to see if the page stack should be reset
+            if (e.NavigationMode == NavigationMode.Reset)
+                RootFrame.Navigated += ClearBackStackAfterReset;
+        }
+
+        private void ClearBackStackAfterReset(object sender, NavigationEventArgs e)
+        {
+            // Unregister the event so it doesn't get called again
+            RootFrame.Navigated -= ClearBackStackAfterReset;
+
+            // Only clear the stack for 'new' (forward) and 'refresh' navigations
+            if (e.NavigationMode != NavigationMode.New && e.NavigationMode != NavigationMode.Refresh)
+                return;
+
+            // For UI consistency, clear the entire page stack
+            while (RootFrame.RemoveBackEntry() != null)
+            {
+                ; // do nothing
+            }
         }
 
         #endregion

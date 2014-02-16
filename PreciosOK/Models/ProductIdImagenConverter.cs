@@ -4,9 +4,6 @@ using System.Windows.Data;
 
 namespace PreciosOK.Models
 {
-    /// <summary>
-    /// Data binding converter for converting a line number to image source
-    /// </summary>
     public class ProductIdImagenConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

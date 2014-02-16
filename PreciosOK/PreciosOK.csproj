@@ -5,25 +5,25 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{67B2F74A-C014-4DA3-A4F5-C57A7C25C1E0}</ProjectGuid>
+    <ProjectGuid>{FB0629C9-14AA-47B8-BC44-6899523334D1}</ProjectGuid>
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PreciosOK</RootNamespace>
     <AssemblyName>PreciosOK</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
-    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
-    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
     <SilverlightApplication>true</SilverlightApplication>
     <SupportedCultures>
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>PreciosOK.xap</XapFilename>
+    <XapFilename>PreciosOK_$(Configuration)_$(Platform).xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
     <SilverlightAppEntry>PreciosOK.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -47,36 +47,48 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="JeffWilcox.PhoneThemeManager">
-      <HintPath>..\..\lib\JeffWilcox.PhoneThemeManager.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Phone" />
-    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Phone.Controls.Maps, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Phone.Controls.Toolkit">
-      <HintPath>..\..\lib\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Phone.Interop" />
-    <Reference Include="MobFox.Ads">
-      <HintPath>..\lib\MobFox.Ads.dll</HintPath>
-    </Reference>
-    <Reference Include="MobFox.Ads.LocationAware">
-      <HintPath>..\lib\MobFox.Ads.LocationAware.dll</HintPath>
-    </Reference>
-    <Reference Include="system.data.linq" />
-    <Reference Include="System.Device" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Windows" />
-    <Reference Include="system" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Net" />
-    <Reference Include="System.Xml" />
-    <Reference Include="mscorlib.extensions" />
-    <Reference Include="zxing.wp7.1">
-      <HintPath>..\packages\ZXing.Net.0.12.0.0\lib\sl4-wp71\zxing.wp7.1.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -92,8 +104,12 @@
     <Compile Include="Helpers\TileManager.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductIdImagenConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Acerca.xaml.cs">
       <DependentUpon>Acerca.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LugarDetalles.xaml.cs">
+      <DependentUpon>LugarDetalles.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Opciones.xaml.cs">
       <DependentUpon>Opciones.xaml</DependentUpon>
@@ -101,10 +117,6 @@
     <Compile Include="Views\Puntos.xaml.cs">
       <DependentUpon>Puntos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LugarDetalles.xaml.cs">
-      <DependentUpon>LugarDetalles.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Scan.xaml.cs">
       <DependentUpon>Scan.xaml</DependentUpon>
     </Compile>
@@ -118,13 +130,28 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
-    <None Include="Properties\WMAppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationIcon.png">
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Background.png">
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Icons\appbar.feature.code.png" />
@@ -132,8 +159,8 @@
     <Content Include="Images\Icons\appbar.feature.pin.rest.png" />
     <Content Include="Images\Icons\appbar.minus.rest.png" />
     <Content Include="Images\Icons\appbar.new.rest.png" />
-    <Content Include="Images\Icons\feature.share.png" />
     <Content Include="Images\Icons\feature.search.png" />
+    <Content Include="Images\Icons\feature.share.png" />
     <Content Include="Images\Icons\search.refine.png" />
     <Content Include="Images\Products\product_1.jpg" />
     <Content Include="Images\Products\product_10.jpg" />
@@ -361,14 +388,18 @@
     <Content Include="Images\Products\product_98.jpg" />
     <Content Include="Images\Products\product_99.jpg" />
     <Content Include="Images\supermercados.png" />
-    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Styles\Style.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Acerca.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LugarDetalles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -380,19 +411,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\LugarDetalles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\Scan.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.wp8.0">
+      <HintPath>..\packages\ZXing.Net.0.12.0.0\lib\wp8\zxing.wp8.0.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
