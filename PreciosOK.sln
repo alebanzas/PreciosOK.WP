@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreciosOK", "PreciosOK\PreciosOK.csproj", "{67B2F74A-C014-4DA3-A4F5-C57A7C25C1E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreciosOK.WP8", "PreciosOK\PreciosOK.WP8.csproj", "{67B2F74A-C014-4DA3-A4F5-C57A7C25C1E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreciosOK.Tests", "PreciosOK.Tests\PreciosOK.Tests.csproj", "{7181B58A-CDD7-4785-B536-E9A4E77F1376}"
 EndProject
