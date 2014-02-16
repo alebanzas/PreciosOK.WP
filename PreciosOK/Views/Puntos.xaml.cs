@@ -43,11 +43,7 @@ namespace PreciosOK.Views
             InitializeComponent();
 
             TxtVersion.Text = "Versión " + App.Configuration.Version;
-
-            //MobFoxAdControl.PublisherID = App.Configuration.MobFoxID;
-            //MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
-
-
+            
             RegionList.ItemsSource = App.Configuration.GetRegions().Select(x => x.Value);
             RegionList.SelectedIndex = App.Configuration.SelectedRegion.HasValue ? App.Configuration.SelectedRegion.Value : 0;
             MarketList.ItemsSource = App.Configuration.GetMarketsByRegions(RegionList.SelectedIndex).Select(x => x.Value);
