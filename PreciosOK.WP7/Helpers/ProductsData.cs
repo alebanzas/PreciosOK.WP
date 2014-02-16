@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PreciosOK.Models;
+using PreciosOK.WP7.Models;
 
-namespace PreciosOK.Helpers
+namespace PreciosOK.WP7.Helpers
 {
     public partial class ApplicationConfiguration
     {

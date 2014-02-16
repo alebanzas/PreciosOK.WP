@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows;
 using Microsoft.Phone.Shell;
 
-namespace PreciosOK.Helpers
+namespace PreciosOK.WP7.Helpers
 {
     public static class TileManager
     {

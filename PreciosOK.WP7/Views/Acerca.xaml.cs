@@ -1,7 +1,7 @@
 ﻿using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
-namespace PreciosOK.Views
+namespace PreciosOK.WP7.Views
 {
     public partial class Acerca : PhoneApplicationPage
     {

@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using PreciosOK.Helpers;
+using PreciosOK.WP7.Helpers;
 
-namespace PreciosOK.Views
+namespace PreciosOK.WP7.Views
 {
     public partial class Opciones
     {

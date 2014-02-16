@@ -4,7 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:maps="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
-    xmlns:models="clr-namespace:PreciosOK.Models"
+    xmlns:models="clr-namespace:PreciosOK.WP7.Models"
     mc:Ignorable="d">
 
     <models:ProductIdImagenConverter x:Key="ProductIdImagenConverter" />

@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 
-namespace PreciosOK.Helpers
+namespace PreciosOK.WP7.Helpers
 {
     public static class UriExtensions
     {

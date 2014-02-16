@@ -4,10 +4,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using Microsoft.Devices;
 using Microsoft.Phone.Controls;
-using PreciosOK.Helpers;
+using PreciosOK.WP7.Helpers;
 using ZXing;
 
-namespace PreciosOK.Views
+namespace PreciosOK.WP7.Views
 {
     public partial class Scan : PhoneApplicationPage
     {
