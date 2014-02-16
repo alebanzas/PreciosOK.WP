@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Windows;
 
-namespace PreciosOK.Helpers
+namespace PreciosOK.WP7.Helpers
 {
     public static class StatusChecker
     {

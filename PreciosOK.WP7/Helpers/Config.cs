@@ -1,6 +1,6 @@
 ﻿using System.IO.IsolatedStorage;
 
-namespace PreciosOK.Helpers
+namespace PreciosOK.WP7.Helpers
 {
     public static class Config
     {

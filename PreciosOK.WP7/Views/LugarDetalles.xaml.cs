@@ -6,14 +6,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using PreciosOK.Helpers;
+using PreciosOK.WP7.Helpers;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Controls.Maps;
 using Microsoft.Phone.Controls.Maps.Core;
 using Microsoft.Phone.Tasks;
-using PreciosOK.Models;
+using PreciosOK.WP7.Models;
 
-namespace PreciosOK.Views
+namespace PreciosOK.WP7.Views
 {
     public partial class LugarDetalles : PhoneApplicationPage
     {
@@ -68,7 +68,7 @@ namespace PreciosOK.Views
         {
             var shareLinkTask = new ShareStatusTask()
                 {
-                    Status = string.Format("#preciosOKWP {0} ({1}) a solo ${2}", _estacion.Name, _estacion.Brand, _estacion.Price),
+                    Status = string.Format("#PreciosOK.WP7WP {0} ({1}) a solo ${2}", _estacion.Name, _estacion.Brand, _estacion.Price),
                 };
             shareLinkTask.Show();
         }

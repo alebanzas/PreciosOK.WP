@@ -2,7 +2,7 @@
 using System.Device.Location;
 using System.Windows;
 
-namespace PreciosOK.Helpers
+namespace PreciosOK.WP7.Helpers
 {
     public class PositionService
     {

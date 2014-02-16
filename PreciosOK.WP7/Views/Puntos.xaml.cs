@@ -11,12 +11,12 @@ using System.Windows.Media;
 using System.Windows.Navigation;
 using System.Windows.Threading;
 using Microsoft.Phone.Tasks;
-using PreciosOK.Helpers;
+using PreciosOK.WP7.Helpers;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using PreciosOK.Models;
+using PreciosOK.WP7.Models;
 
-namespace PreciosOK.Views
+namespace PreciosOK.WP7.Views
 {
     public partial class Puntos
     {

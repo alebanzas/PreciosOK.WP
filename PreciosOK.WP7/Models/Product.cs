@@ -1,4 +1,4 @@
-﻿namespace PreciosOK.Models
+﻿namespace PreciosOK.WP7.Models
 {
     public class Product
     {

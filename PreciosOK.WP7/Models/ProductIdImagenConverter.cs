@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace PreciosOK.Models
+namespace PreciosOK.WP7.Models
 {
     /// <summary>
     /// Data binding converter for converting a line number to image source
