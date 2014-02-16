@@ -1,0 +1,31 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="PreciosOK.Views.Acerca"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <StackPanel x:Name="LayoutRoot">
+
+        <StackPanel x:Name="TitlePanel" Background="#0071B7">
+            <TextBlock x:Name="PageTitle" Text="Acerca de..." Margin="12,0,0,5" FontSize="50" />
+        </StackPanel>
+
+        <StackPanel x:Name="ContentPanel" Background="#323232" Height="60">
+        </StackPanel>
+        
+        <StackPanel Margin="0,30,0,0">
+            <TextBlock Height="386" HorizontalAlignment="Left" Margin="12,80,0,0" Name="textBlock4" Text="El uso de esta aplicación puede implicar la transmisión de datos y el envío de información su posición. Puede que las funciones no siempre esten disponibles o sean precisas. Así mismo se brinda la posibilidad de que el usuario pueda activar o desactivar la busqueda de su posición. La información recolectada en ningún caso será utilizada para identificarte ni ponerse en contacto contigo. " VerticalAlignment="Top" Width="424" TextTrimming="None" TextWrapping="Wrap" />
+        </StackPanel>
+    </StackPanel>
+    
+</phone:PhoneApplicationPage>

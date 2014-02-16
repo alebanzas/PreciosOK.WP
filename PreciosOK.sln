@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreciosOK", "PreciosOK\Prec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreciosOK.Tests", "PreciosOK.Tests\PreciosOK.Tests.csproj", "{7181B58A-CDD7-4785-B536-E9A4E77F1376}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreciosOK.WP7", "PreciosOK.WP7\PreciosOK.WP7.csproj", "{46247585-904F-4E81-ABE2-515C9C30C8C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{7181B58A-CDD7-4785-B536-E9A4E77F1376}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7181B58A-CDD7-4785-B536-E9A4E77F1376}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7181B58A-CDD7-4785-B536-E9A4E77F1376}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46247585-904F-4E81-ABE2-515C9C30C8C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46247585-904F-4E81-ABE2-515C9C30C8C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46247585-904F-4E81-ABE2-515C9C30C8C3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{46247585-904F-4E81-ABE2-515C9C30C8C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46247585-904F-4E81-ABE2-515C9C30C8C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46247585-904F-4E81-ABE2-515C9C30C8C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
