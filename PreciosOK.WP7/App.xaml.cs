@@ -9,7 +9,7 @@ namespace PreciosOK.WP7
     public partial class App : Application
     {
         private const string AppName = "PreciosOKWP";
-        private const string AppVersion = "1.4.0.7";
+        private const string AppVersion = "2.0.0.7";
 
         public static ApplicationConfiguration Configuration { get; set; }
 

@@ -59,6 +59,8 @@ namespace PreciosOK.WP7.Helpers
 
         public bool IsLocationEnabledByAppConfig { get; set; }
 
+        private readonly List<Product> products = ProductsData.products1.Concat(ProductsData2.products2).ToList(); 
+
         public IList<Product> GetProducts(string category, string text)
         {
             if (!string.IsNullOrWhiteSpace(category))
@@ -79,7 +81,7 @@ namespace PreciosOK.WP7.Helpers
                    && code.ToString(CultureInfo.InvariantCulture).StartsWith(x.BarCode.ToString(CultureInfo.InvariantCulture)));
         }
 
-        public Product GetById(int id)
+        public Product GetById(long id)
         {
             return products.FirstOrDefault(x => x.Market == SelectedMarket && x.Region == SelectedRegion && x.Id == id);
         }
