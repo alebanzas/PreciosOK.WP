@@ -59,6 +59,22 @@ namespace PreciosOK.Helpers
 
         public bool IsLocationEnabledByAppConfig { get; set; }
 
+
+        public string MobFoxID = "6e5750e15a3e149e36437939d5aac5f8";
+
+        public bool MobFoxInTestMode
+        {
+            get
+            {
+#if DEBUG
+                return true;
+#endif
+                return false;
+            }
+        }
+
+        private readonly List<Product> products = ProductsData.products1.Concat(ProductsData2.products2).ToList(); 
+
         public IList<Product> GetProducts(string category, string text)
         {
             if (!string.IsNullOrWhiteSpace(category))
@@ -79,7 +95,7 @@ namespace PreciosOK.Helpers
                 && code.ToString(CultureInfo.InvariantCulture).StartsWith(x.BarCode.ToString(CultureInfo.InvariantCulture)));
         }
 
-        public Product GetById(int id)
+        public Product GetById(long id)
         {
             return products.FirstOrDefault(x => x.Market == SelectedMarket && x.Region == SelectedRegion && x.Id == id);
         }
@@ -91,7 +107,7 @@ namespace PreciosOK.Helpers
         {
             new KeyValuePair<int, string>(0, "Capital y GBA"),
             new KeyValuePair<int, string>(1, "Provincia de Bs. As."),
-            new KeyValuePair<int, string>(2, "Cuyo y litoral"),
+            new KeyValuePair<int, string>(2, "Centro, Cuyo y litoral"),
             new KeyValuePair<int, string>(3, "NEA y NOA"),
             new KeyValuePair<int, string>(4, "Patagonia"),
         };

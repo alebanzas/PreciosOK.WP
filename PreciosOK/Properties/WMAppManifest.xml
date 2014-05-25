@@ -4,7 +4,7 @@
   <Languages xmlns="">
     <Language code="es-AR" />
   </Languages>
-  <App xmlns="" ProductID="{fb0629c9-14aa-47b8-bc44-6899523334d1}" Title="Precios Cuidados" RuntimeType="Silverlight" Version="1.4.0.8" Genre="apps.normal" Author="AleBanzas" Description="Sample description" Publisher="AleBanzas" PublisherID="{05805dc0-0374-4a96-9fe5-93fd6d76834f}">
+  <App xmlns="" ProductID="{fb0629c9-14aa-47b8-bc44-6899523334d1}" Title="Precios Cuidados" RuntimeType="Silverlight" Version="2.0.0.8" Genre="apps.normal" Author="AleBanzas" Description="Sample description" Publisher="AleBanzas" PublisherID="{05805dc0-0374-4a96-9fe5-93fd6d76834f}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />

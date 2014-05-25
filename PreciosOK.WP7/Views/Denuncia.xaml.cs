@@ -60,7 +60,7 @@ namespace PreciosOK.WP7.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             //Al navegar a la página, busco el lugar en base al id pasado y luego lo muestro.
-            var id = int.Parse(Uri.EscapeUriString(NavigationContext.QueryString["id"]));
+            var id = long.Parse(Uri.EscapeUriString(NavigationContext.QueryString["id"]));
 
             _estacion = App.Configuration.GetById(id);
             
@@ -181,7 +181,7 @@ namespace PreciosOK.WP7.Views
 
         public int MarketId { get; set; }
 
-        public int ProductId { get; set; }
+        public long ProductId { get; set; }
 
         public string Type { get; set; }
 

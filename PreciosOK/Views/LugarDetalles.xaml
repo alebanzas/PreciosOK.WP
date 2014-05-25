@@ -6,7 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:googleAds="clr-namespace:GoogleAds;assembly=GoogleAds"
+    xmlns:ads="clr-namespace:MobFox.Ads;assembly=MobFox.Ads"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -39,9 +39,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
-            <googleAds:AdView AdUnitID="ca-app-pub-4463374879380815/3807690886"
-                          Format="Banner"
-                          VerticalAlignment="Bottom" />
+            <ads:AdControl Name="MobFoxAdControl"/>
         </StackPanel>
     </Grid>
 

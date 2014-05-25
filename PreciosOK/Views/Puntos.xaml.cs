@@ -41,6 +41,9 @@ namespace PreciosOK.Views
         public Puntos()
         {
             InitializeComponent();
+            
+            MobFoxAdControl.PublisherID = App.Configuration.MobFoxID;
+            MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
 
             TxtVersion.Text = "Versión " + App.Configuration.Version;
             
@@ -97,19 +100,19 @@ namespace PreciosOK.Views
 
             if (!CategoryList.Items.Any())
             {
-
                 CategoryList.ItemsSource = new List<CategoryItem>
                     {
                         new CategoryItem { Name = "todos", Id = ""},
-                        new CategoryItem { Name = "ALMACÉN", Id = "ALMACÉN"},
-                        new CategoryItem { Name = "BEBIDAS", Id = "BEBIDAS"},
-                        new CategoryItem { Name = "PERFUMERÍA", Id = "PERFUMERÍA"},
-                        new CategoryItem { Name = "LIMPIEZA", Id = "LIMPIEZA"},
-                        new CategoryItem { Name = "PANIFICADOS", Id = "PANIFICADOS"},
-                        new CategoryItem { Name = "CARNES", Id = "CARNES"},
-                        new CategoryItem { Name = "LÁCTEOS", Id = "LÁCTEOS"},
-                        new CategoryItem { Name = "VERDULERÍA", Id = "VERDULERÍA"},
-                        new CategoryItem { Name = "CANASTA ESCOLAR", Id = "CANASTA ESCOLAR"},
+                        new CategoryItem { Name = "ALMACÉN", Id = "Almacen"},
+                        new CategoryItem { Name = "BEBIDAS", Id = "Bebidas"},
+                        new CategoryItem { Name = "PERFUMERÍA", Id = "Perfumeria"},
+                        new CategoryItem { Name = "LIMPIEZA", Id = "Limpieza"},
+                        new CategoryItem { Name = "PANIFICADOS", Id = "Panificados"},
+                        new CategoryItem { Name = "CARNES Y PESCADOS", Id = "Carnes Y Procesados"},
+                        new CategoryItem { Name = "CONSTRUCCIÓN", Id = "Construccion"},
+                        new CategoryItem { Name = "LÁCTEOS", Id = "Lacteos"},
+                        new CategoryItem { Name = "VERDULERÍA", Id = "Verduleria"},
+                        new CategoryItem { Name = "LIBRERÍA", Id = "Libreria"},
                     };
                 
                 MostrarLugares(null);   

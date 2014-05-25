@@ -88,6 +88,7 @@
     <Compile Include="Helpers\LoadingBar.cs" />
     <Compile Include="Helpers\PositionService.cs" />
     <Compile Include="Helpers\ProductsData.cs" />
+    <Compile Include="Helpers\ProductsData2.cs" />
     <Compile Include="Helpers\ProgressBar.cs" />
     <Compile Include="Helpers\StatusChecker.cs" />
     <Compile Include="Helpers\TileManager.cs" />

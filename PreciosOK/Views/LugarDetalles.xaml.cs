@@ -18,12 +18,15 @@ namespace PreciosOK.Views
         public LugarDetalles()
         {
             InitializeComponent();
+
+            MobFoxAdControl.PublisherID = App.Configuration.MobFoxID;
+            MobFoxAdControl.TestMode = App.Configuration.MobFoxInTestMode;
+            
             Unloaded += Page_UnLoaded;
         }
 
         private void Page_UnLoaded(object sender, RoutedEventArgs e)
         {
-            
         }
 
         private void UpdateLugar()
@@ -43,7 +46,7 @@ namespace PreciosOK.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             //Al navegar a la página, busco el lugar en base al id pasado y luego lo muestro.
-            var id = int.Parse(Uri.EscapeUriString(NavigationContext.QueryString["id"]));
+            var id = long.Parse(Uri.EscapeUriString(NavigationContext.QueryString["id"]));
             
             _estacion = App.Configuration.GetById(id);
             UpdateLugar();
